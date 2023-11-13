@@ -25,6 +25,8 @@ static void combine(int *arr, int p, int mid, int r) {
 
 	while (j < Rnum)
 		arr[k++] = Rarr[j++];
+	free(Larr);
+	free(Rarr);
 }
 
 void merge(int *arr, int p, int r) {

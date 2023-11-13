@@ -30,11 +30,9 @@ static void heap(int *arr, int size) {
 	}
 }
 
-/* depth를 int로 해도 문제없겠지? */
 void mysort(int *arr, int p, int r, int depth) {
-	if (depth == 0) {
+	if (depth == 0)
 		heap(arr, r - p + 1);
-	}
 	else if (p < r) {
 		int q;
 		q = partition(arr, p, r);

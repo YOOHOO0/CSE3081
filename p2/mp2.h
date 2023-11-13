@@ -3,8 +3,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
+#include <string.h>
 #include <math.h>
+#include <time.h>
 
 void	selection(int *arr, int num);
 int		partition(int *arr, int p, int r);
