@@ -5545,7 +5545,7 @@ clouds. Holmes drove in silence, with his head sunk upon his
 breast, and the air of a man who is lost in thought, while I sat
 beside him, curious to learn what this new quest might be which
 seemed to tax his powers so sorely, and yet afraid to break in
-upon the current of his thoughts. We had driven several miles,
+upon the n of his thoughts. We had driven several miles,
 and were beginning to get to the fringe of the belt of suburban
 villas, when he shook himself, shrugged his shoulders, and lit
 up his pipe with the air of a man who has satisfied himself that
@@ -9788,7 +9788,7 @@ papers of the same week. Ah, here it is:
 
     face attracted much attention at the Westbury House festivi-
 
-    ties, is an only child, and it is currently reported that her
+    ties, is an only child, and it is nly reported that her
 
     dowry will run to considerably over the six figures, with
 

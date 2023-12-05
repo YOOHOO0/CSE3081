@@ -1,7 +1,7 @@
 #include "mp3.h"
 
 void incoding(char **argv) {
-	// 파일 open
+	// file open
 	ifstream inputFile(argv[2]);
 	if (inputFile.fail()) {
 		cout << "error : file does not exist" << endl;
@@ -9,11 +9,11 @@ void incoding(char **argv) {
 	}
 
 	// hufman tree & code 생성
-	Node *root = makeTree(argv);
+	Node *root = buildHuftree(argv);
 	string code;
 	genHufCode(root, code);
 
-	// 압축을 위한 임시 텍스트 작성(2진수 string)
+	// 압축을 위한 임시 binaryText(2진수 string) 작성
 	char c;
 	string binaryText;
 	while (inputFile.get(c))
@@ -25,9 +25,8 @@ void incoding(char **argv) {
 	for(int i = 0; i < 128; i++)
 		incodingFile << hufCode[i] << '\n';
 
-	// 8로 나누어떨어지지 않을 경우를 위한 정보 출력
-	incodingFile << binaryText.length() / 8 << '\n';
-	incodingFile << binaryText.length() % 8 << '\n';
+	// padding 정보 출력
+	incodingFile << 8 - (binaryText.length() % 8) << '\n';
 
 	// 8비트씩 압축해서 인코딩파일 생성
 	for(int i = 0; i < binaryText.length() / 8 + 1; i++) {
@@ -38,12 +37,12 @@ void incoding(char **argv) {
 }
 
 struct cmpNode {
-    bool operator()(const Node* l, const Node* r) const {
-        return l->freq > r->freq;
-    }
+    bool operator()(Node* l, Node* r) {
+		return l->freq > r->freq;
+	}
 };
 
-Node *makeTree(char **argv) {
+Node *buildHuftree(char **argv) {
 	priority_queue<Node *, vector<Node *>, cmpNode> pq;
 	vector<int> freq(128, 0);
 	FILE *inputfile = fopen(argv[2], "r");
@@ -81,7 +80,7 @@ Node *makeTree(char **argv) {
 	return w;
 }
 
-void genHufCode(Node* root, std::string code) {
+void genHufCode(Node* root, string code) {
     if (root == 0)
         return;
     if (root->left == 0 && root->right == 0) {

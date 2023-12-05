@@ -21,9 +21,11 @@ typedef struct node {
 
 extern vector<string> hufCode;
 
-Node *makeTree(char **argv);
+Node *buildHuftree(char **argv);
 void genHufCode(Node* root, std::string code);
 void incoding(char **argv);
+Node* rebuildHufftree(vector<string>& hufCode);
+void convertToAscii(ofstream outputFile, string& binaryText, Node* root);
 void decoding(char **argv);
 
 #endif
